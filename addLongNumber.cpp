@@ -9,7 +9,7 @@ addLongNumber::addLongNumber() {
 
     operand = nullptr;
 
-    short number = 0;
+    short digit = 0;
     longNumber lastPrev;
 
 
@@ -17,20 +17,20 @@ addLongNumber::addLongNumber() {
     cout << "If you are finished entering `00` \n";
 
     do {
-        cin >> number;
+        cin >> digit;
 
-        if (number > 9) {
-            cout << "Enter pls number > 9 \n";
+        if (digit > 9) {
+            cout << "Enter pls digit > 9 \n";
             continue;
         }
 
         if (operand == nullptr) {
-            initializeFirstElement(number);
+            initializeFirstElement(digit);
         } else {
-            addDigital(number);
+            addDigital(digit);
         }
 
-    } while(number != 00);
+    } while(digit != 999);
 }
 
 addLongNumber::addLongNumber(const string& numberPerLine) {
@@ -69,4 +69,13 @@ void addLongNumber::addDigital(short digit) {
 
 longNumber addLongNumber::getLastElement() {
     return last;
+}
+
+void addLongNumber::printNumber() {
+    longNumber temp = operand;
+    while (temp != nullptr) {
+        cout << temp->data;
+        temp = temp->next;
+    }
+    cout << endl;
 }
