@@ -1,16 +1,15 @@
 #include <iostream>
 #include "addLongNumber.h"
+#include <string>
 
 using namespace std;
 
 addLongNumber::addLongNumber() {
     cout << "Default constructor class \n";
 
-    firstOperand = nullptr;
-    secondOperand = nullptr;
+    operand = nullptr;
 
-
-    int number = 0;
+    short number = 0;
     longNumber lastPrev;
 
 
@@ -25,55 +24,39 @@ addLongNumber::addLongNumber() {
             continue;
         }
 
-        if (firstOperand == nullptr) {
-            firstOperand = new longNumberElement;
-            firstOperand->data = number;
-            firstOperand->next = nullptr;
-            firstOperand->prev = nullptr;
-            lastPrev = firstOperand;
+        if (operand == nullptr) {
+            operand = new longNumberElement;
+            operand->data = number;
+            operand->next = nullptr;
+            operand->prev = nullptr;
+            last = operand;
         } else {
-            longNumber temp = new longNumberElement;
-            temp->data = number;
-            temp->prev = lastPrev;
-            temp->next = nullptr;
-            lastPrev->next = temp;
+            addDigital(number) ;
         }
 
     } while(number != 00);
+}
 
-    cout << "Input pls first digit of a second long number \n";
-    cout << "If you are finished entering `00` \n";
+addLongNumber::addLongNumber(const string& numberPerLine) {
+    cout << "Constructor that takes a string \n";
 
-    lastPrev = nullptr;
-    number = 0;
-
-    do {
-        cin >> number;
-
-        if (number > 9) {
-            cout << "Enter pls number > 9 \n";
-            continue;
-        }
-
-        if (secondOperand == nullptr) {
-            secondOperand = new longNumberElement;
-            secondOperand->data = number;
-            secondOperand->next = nullptr;
-            secondOperand->prev = nullptr;
-            lastPrev = secondOperand;
-        } else {
-            longNumber temp = new longNumberElement;
-            temp->data = number;
-            temp->prev = lastPrev;
-            temp->next = nullptr;
-            lastPrev->next = temp;
-        }
-
-    } while(number != 00);
+    for (char i : numberPerLine) {
+        cout << i << endl;
+    }
 
 }
 
-addLongNumber::addLongNumber(char numberPerLine) {
-    cout << "Constructor that takes a string \n";
+void addLongNumber::addDigital(short digit) {
+    longNumber temp = getLastElement();
+    longNumber addElement = new longNumberElement;
+    addElement->data = digit;
+    addElement->prev = temp;
+    addElement->next = nullptr;
+    temp->next = addElement;
+    last = addElement;
+    temp = nullptr;
+}
 
+longNumber addLongNumber::getLastElement() {
+    return last;
 }
