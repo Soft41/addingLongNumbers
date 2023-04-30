@@ -14,7 +14,7 @@ addLongNumber::addLongNumber() {
 
 
     cout << "Input pls first digit of a long number \n";
-    cout << "If you are finished entering `00` \n";
+    cout << "If you are finished entering `999` \n";
 
     do {
         cin >> digit;
@@ -78,4 +78,10 @@ void addLongNumber::printNumber() {
         temp = temp->next;
     }
     cout << endl;
+}
+
+addLongNumber addLongNumber::operator+(addLongNumber &other) {
+    cout << "Summ operator \n";
+    this->printNumber();
+    other.printNumber();
 }

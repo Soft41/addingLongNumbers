@@ -17,12 +17,13 @@ private:
 public:
     addLongNumber();
     addLongNumber(const string& numberPerLine);
+
     void addDigital(short digit);
     void initializeFirstElement(short digit);
+    void printNumber();
 
     longNumber getLastElement();
-
-    void printNumber();
+    addLongNumber operator+(addLongNumber& other);
 };
 
 
