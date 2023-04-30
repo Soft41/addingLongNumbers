@@ -1,8 +1,6 @@
 #ifndef SUMMNUMBERS_ADDLONGNUMBER_H
 #define SUMMNUMBERS_ADDLONGNUMBER_H
 
-
-
 struct longNumberElement {
     longNumberElement *next, *prev;
     int data;
@@ -17,8 +15,6 @@ private:
 public:
     addLongNumber();
     addLongNumber(char numberPerLine);
-
-    void printNumber();
 };
 
 

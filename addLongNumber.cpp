@@ -3,9 +3,10 @@
 
 using namespace std;
 
-void addLongNumber::printNumber() {
+addLongNumber::addLongNumber() {
     cout << "Default constructor class \n";
-    cout << "Input pls first element in numeric \n";
+}
 
-    while
+addLongNumber::addLongNumber(char numberPerLine) {
+    cout << "Constructor that takes a string \n";
 }
