@@ -13,17 +13,28 @@ using longNumber = longNumberElement*;
 
 class addLongNumber {
 private:
+    short getCounterDigit();
+    void incrementCounterDigit();
+    void incrementPrevElement(longNumber &other);
+
     longNumber operand, last;
+    short nDigit;
 public:
-    addLongNumber();
+    addLongNumber(bool requestInput = true);
     addLongNumber(const string& numberPerLine);
+    addLongNumber(longNumber &other);
 
     void addDigital(short digit);
     void initializeFirstElement(short digit);
     void printNumber();
 
     longNumber getLastElement();
+
     addLongNumber operator+(addLongNumber& other);
+
+    void insertFirst(short digit);
+
+
 };
 
 
